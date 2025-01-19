@@ -1,13 +1,14 @@
 import os
 import cv2
+from train_model import train_classifier_letters, train_classifier_numbers
+from recognize import run_recognition_letters, run_recognition_numbers
 
-# Paths and settings
 DATA_DIR = './data'
 LETTER_DIR = os.path.join(DATA_DIR, 'letters')
 NUMBER_DIR = os.path.join(DATA_DIR, 'numbers')
-CLASSES_LETTERS = [chr(i) for i in range(65, 91)]  # A to Z
-CLASSES_NUMBERS = [str(i) for i in range(10)]  # 0 to 9
-IMAGES_PER_CLASS = 100  # Number of images per class
+CLASSES_LETTERS = [chr(i) for i in range(65, 91)] 
+CLASSES_NUMBERS = [str(i) for i in range(10)] 
+IMAGES_PER_CLASS = 100  
 
 def collect_data():
     cap = cv2.VideoCapture(0)
